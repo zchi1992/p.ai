@@ -51,7 +51,14 @@ if __name__ == "__main__":
         row =[str(i)]
         web = "https://www.petcoach.co/question/?id=" + str(i)
         driver.get(web)
-        time.sleep(3)
+        find = False
+        while(not find):
+            try:
+                driver.find_element_by_class_name("icon-askanexpert")
+                find = True
+            except Exception:
+                pass
+        time.sleep(0.2)
         row.append(getCategory(driver))
         row.append(getQuestion(driver))
         row.append(getAnswer(driver))
@@ -60,6 +67,3 @@ if __name__ == "__main__":
         saveTxt(driver.page_source, i)
 
     saveData(data)
-
-
-
