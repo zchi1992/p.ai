@@ -34,14 +34,12 @@ def getAnswer(driver):
     if "We can\'t seem to find the page" in driver.page_source:
         return "Empty"
     else:
-        try:
-            try:
-                answer = driver.find_element_by_css_selector(".questionDetail__answer:nth-child(1) > p:nth-child(2)")
-            except Exception:
-                answer = driver.find_element_by_css_selector(".questionDetail__answer > p:nth-child(2)")
-            return answer.text
-        except Exception:
+        if "No Answers yet" in driver.page_source:
             return "Empty"
+        else:
+            answer = driver.find_element_by_css_selector(".questionDetail__answer:nth-child(1) > p:nth-child(2)")
+            return answer.text
+
 
 
 if __name__ == "__main__":
@@ -54,16 +52,18 @@ if __name__ == "__main__":
         find = False
         while(not find):
             try:
-                driver.find_element_by_class_name("icon-askanexpert")
-                find = True
+                Answer = getAnswer(driver)
+                Question = getQuestion(driver)
+                Category = getCategory(driver)
             except Exception:
-                pass
-        time.sleep(0.2)
-        row.append(getCategory(driver))
-        row.append(getQuestion(driver))
-        row.append(getAnswer(driver))
+                continue
+            find = True
+        row.append(Category)
+        row.append(Question)
+        row.append(Answer)
         print row
         data.append(row)
         saveTxt(driver.page_source, i)
 
     saveData(data)
+
