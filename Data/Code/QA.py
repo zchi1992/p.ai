@@ -16,8 +16,11 @@ def getCategory(driver):
     if "We can\'t seem to find the page" in driver.page_source:
         return "Empty"
     else:
-        category = driver.find_element_by_css_selector(".category")
-        return category.text
+        try:
+            category = driver.find_element_by_css_selector(".category")
+            return category.text
+        except Exception:
+            return "Empty"
 
 def getQuestion(driver):
     if "We can\'t seem to find the page" in driver.page_source:
