@@ -22,7 +22,7 @@ def getCategory(driver):
             return category.text
         except Exception:
             return "Empty"
-            
+
 def getQuestion(driver):
     if "We can\'t seem to find the page" in driver.page_source:
         return "Empty"
@@ -51,7 +51,7 @@ if __name__ == "__main__":
         row =[str(i)]
         web = "https://www.petcoach.co/question/?id=" + str(i)
         driver.get(web)
-        time.sleep(1)
+        time.sleep(3)
         row.append(getCategory(driver))
         row.append(getQuestion(driver))
         row.append(getAnswer(driver))
@@ -60,7 +60,6 @@ if __name__ == "__main__":
         saveTxt(content, i)
 
     saveData(data)
-
 
 
 
