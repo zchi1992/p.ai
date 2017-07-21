@@ -52,7 +52,7 @@ if __name__ == "__main__":
         row.append(getAnswer(driver))
         print row
         data.append(row)
-        saveTxt(content, i)
+        saveTxt(driver.page_source, i)
 
     saveData(data)
 
