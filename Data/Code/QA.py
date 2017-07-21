@@ -50,7 +50,12 @@ if __name__ == "__main__":
         web = "https://www.petcoach.co/question/?id=" + str(i)
         driver.get(web)
         find = False
+        start_time = time.time()
         while(not find):
+            if(time.time()-start_time > 8):
+                driver.get(web)
+                start_time = time.time()
+                print "Freshing...."
             try:
                 Answer = getAnswer(driver)
                 Question = getQuestion(driver)
@@ -66,4 +71,3 @@ if __name__ == "__main__":
         saveTxt(driver.page_source, i)
 
     saveData(data)
-
