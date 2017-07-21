@@ -51,7 +51,7 @@ if __name__ == "__main__":
         row.append(getQuestion(driver))
         row.append(getAnswer(driver))
         print row
-        data.append[row]
+        data.append(row)
         saveTxt(content, i)
 
     saveData(data)
