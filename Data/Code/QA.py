@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import csv
+import time
 
 def saveTxt(content,i):
     text_file = open("C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\Pet\\data\\QAid=" + "%06d"%i + ".txt", "w")
@@ -21,7 +22,7 @@ def getCategory(driver):
             return category.text
         except Exception:
             return "Empty"
-
+            
 def getQuestion(driver):
     if "We can\'t seem to find the page" in driver.page_source:
         return "Empty"
@@ -50,13 +51,16 @@ if __name__ == "__main__":
         row =[str(i)]
         web = "https://www.petcoach.co/question/?id=" + str(i)
         driver.get(web)
+        time.sleep(1)
         row.append(getCategory(driver))
         row.append(getQuestion(driver))
         row.append(getAnswer(driver))
         print row
-        data.append(row)
-        saveTxt(driver.page_source, i)
+        data.append[row]
+        saveTxt(content, i)
 
     saveData(data)
+
+
 
 
