@@ -12,9 +12,18 @@
 
 
 ## File share/Code commit
+Requester:
 1. Fork cs3285/p.ai to your own github account, copy _HTTPS_ URL. For example, mine is https://github.com/zchi1992/p.ai.git
 2. Open Git Bash, change directory to where you want to clone the project. For example, `cd d:`
 3. `git clone (URL)` to your local directory
 4. After files are changed, commit to your __forked__ github repo
-5. In 'Pull requests' tab, click 'New pull request'
-6. 
+5. In 'Pull requests' tab, click 'New pull request' and review changes
+6. Click 'Create pull request', add comments and click 'Create pull request'
+
+Owner:
+
+1. When receiving a new pull request, click 'Pull requests' tab in project repo
+2. Review changes. If it is okay, click 'Merge pull request'. 
+3. If it is not okay, add comments.
+
+_Note_: after clicking 'Merge pull request', the change will merge to `master` branch. So carefully review the change before merging.
