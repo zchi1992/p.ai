@@ -65,8 +65,5 @@ if __name__ == "__main__":
     page_n = getPage(driver)
 # Maybe try find element by XPath???    
 # Maybe try manipulating/split text after download the whole page content???
-    
-    
-    #for element in range(len(diseaseElement)):
         
     
