@@ -67,3 +67,4 @@ if __name__ == "__main__":
 # Maybe try manipulating/split text after download the whole page content???
         
 #a= driver.find_elements_by_css_selector('#content-content > div > div.content > *')  
+#a[15].tag_name = 'h3'
