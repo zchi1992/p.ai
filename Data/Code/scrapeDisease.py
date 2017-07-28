@@ -66,4 +66,4 @@ if __name__ == "__main__":
 # Maybe try find element by XPath???    
 # Maybe try manipulating/split text after download the whole page content???
         
-    
+#a= driver.find_elements_by_css_selector('#content-content > div > div.content > *')  
