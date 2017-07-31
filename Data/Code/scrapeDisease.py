@@ -49,7 +49,7 @@ def getContentDict(driver):
                 content_1.append(c)
             else:
                 pass
-        #Get indeces of headings
+        #Get indices of headings
 	title_indext=[]
         for i in range(len(content_1)):
             if (content_1[i].tag_name in ['h2','h3']):
