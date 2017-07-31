@@ -5,13 +5,15 @@ import csv
 import time
 #from pdb import set_trace as bp
 
-def saveTxt(content,i):
-	text_file = open("path\\name.txt","w")
+def saveTxt(content,animal,d_name):
+	path = "C:\\Users\\IrisTang\\Documents\\zzz\\aip\\diseaseData\\html\\"+animal+"_"+d_name+".txt"
+        text_file = open(path,"w")
 	text_file.write(content.encode('utf-8'))
 	text_file.close()
 
-def saveData(data):
-	with open("path\\name.csv","wb") as f:
+def saveData(data,animal):
+	path = "C:\\Users\\IrisTang\\Documents\\zzz\\aip\\diseaseData\\"+animal+"Disease.csv"
+	with open(path,"wb") as f:
 		writer = csv.writer(f)
 		writer.writerows(data)
 
@@ -69,6 +71,46 @@ def getContentDict(driver):
 
 if __name__ == "__main__":
     driver = webdriver.Chrome('C:/Users/Shi/Desktop/aipet/chromedriver.exe')    
+    animal_list=["cat","dog","bird","horse","fish","exotic","rabbit","ferret","reptile"]
+    for animal in animal_list:
+        time_animal_start=time.time()
+        web_catalog = ("http://www.petmd.com/"+animal+"/conditions")
+        driver.get(web_catalog)    
+        diseaseElement = getDiseaseName(driver)
+        diseaseElement.pop(0)
+        url_list = []
+        disease_name = []
+        data = []
+        for i in range(len(diseaseElement)):
+            url_temp=diseaseElement[i].get_attribute('href')
+            name_temp=diseaseElement[i].text
+            url_list.append((name_temp,url_temp))
+            #disease_name.append(name_temp)
+        for url in url_list:
+            time_disease_start=time.time()
+            row = []
+            driver.get(url[1])
+            content_dict = getContentDict(driver)
+            page_n = getPage(driver)
+            html_source=driver.page_source
+            while (len(page_n)!=0):
+                nextPage(driver,page_n)
+                dict_temp=getContentDict(driver)
+                content_dict.update(dict_temp)
+                html_source=html_source+driver.page_source
+            row.append(url[0])
+            for d in content_dict:
+                row.append(d)
+                row.append(content_dict[d])
+            data.append(row)
+            saveTxt(html_source,animal,url[0])
+            print url[0]
+            print time.time()-time_disease_start
+        saveData(data,animal)
+        print animal
+        print time.time()-time_animal_start
+	
+'''    
     web_catalog = ("http://www.petmd.com/cat/conditions#")    
     driver.get(web_catalog)    
     diseaseElement = getDiseaseName(driver)   
@@ -84,3 +126,4 @@ if __name__ == "__main__":
             
     page_n = getPage(driver)
     driver.close()
+'''
