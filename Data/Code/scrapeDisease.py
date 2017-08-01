@@ -1,21 +1,22 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+#from selenium.webdriver.common.keys import Keys
+#from selenium.webdriver import ActionChains
 import csv
 #import json
 import time
 #from pdb import set_trace as bp
 
 def saveTxt(content,animal,d_name):
-	path = "C:\\Users\\IrisTang\\Documents\\zzz\\aip\\diseaseData\\html\\"+animal+"_"+d_name+".txt"
-        text_file = open(path,"w")
-	text_file.write(content.encode('utf-8'))
-	text_file.close()
+    path = "C:\\Users\\IrisTang\\Documents\\zzz\\aip\\diseaseData\\html\\"+animal+"_"+d_name+".txt"
+    text_file = open(path,"w")
+    text_file.write(content.encode('utf-8'))
+    text_file.close()
 
 def saveData(data,animal):
-	path = "C:\\Users\\IrisTang\\Documents\\zzz\\aip\\diseaseData\\"+animal+"Disease.csv"
-	with open(path,"wb") as f:
-		writer = csv.writer(f)
-		writer.writerows(data)
+    path = "C:\\Users\\IrisTang\\Documents\\zzz\\aip\\diseaseData\\"+animal+"Disease.csv"
+    with open(path,"wb") as f:
+        writer = csv.writer(f)
+        writer.writerows(data)
 
 def getDiseaseName(driver):
     if "We can\'t seem to find the page" in driver.page_source:
@@ -46,13 +47,13 @@ def getContentDict(driver):
         content = driver.find_elements_by_css_selector('#content-content > div > div.content > *')
         content_1=[]        
         #Create "content_1" to remove page number from text
-	for c in content:
+        for c in content:
             if c.tag_name in ['h2','h3','p','ul']:
                 content_1.append(c)
             else:
                 pass
         #Get indices of headings
-	title_indext=[]
+        title_indext=[]
         for i in range(len(content_1)):
             if (content_1[i].tag_name in ['h2','h3']):
                 title_indext.append(i)
@@ -67,10 +68,14 @@ def getContentDict(driver):
             content_dict[content_text[title_indext[i]]] = content_text[title_indext[i]+1:title_indext[i+1]]
     return content_dict
 
- 
+def openLinkInNewWindow(driver, url):
+    driver.execute_script("window.open('');")
+    driver.switch_to.window(driver.window_handles[1])
+    driver.get(url)
+    
 
 if __name__ == "__main__":
-    driver = webdriver.Chrome('C:/Users/Shi/Desktop/aipet/chromedriver.exe')    
+    driver = webdriver.Chrome('C:/Users/IrisTang/Documents/zzz/aip/chromedriver_win32/chromedriver.exe')    
     animal_list=["cat","dog","bird","horse","fish","exotic","rabbit","ferret","reptile"]
     for animal in animal_list:
         time_animal_start=time.time()
@@ -86,44 +91,65 @@ if __name__ == "__main__":
             name_temp=diseaseElement[i].text
             url_list.append((name_temp,url_temp))
             #disease_name.append(name_temp)
-        for url in url_list:
-            time_disease_start=time.time()
+        for url in url_list:            
             row = []
-            driver.get(url[1])
-            content_dict = getContentDict(driver)
-            page_n = getPage(driver)
-            html_source=driver.page_source
-            while (len(page_n)!=0):
-                nextPage(driver,page_n)
-                dict_temp=getContentDict(driver)
-                content_dict.update(dict_temp)
-                html_source=html_source+driver.page_source
+            find = False
+            openLinkInNewWindow(driver,url[1])
+            time_disease_start=time.time()
+            while(not find):
+                if(time.time()-time_disease_start > 40):
+                    driver.close()
+                    driver.switch_to.window(driver.window_handles[0])
+                    openLinkInNewWindow(driver,url[1])
+                    time_disease_start=time.time()
+                    print "Refreshing..."
+                try:
+                     content_dict = getContentDict(driver)
+                     page_n = getPage(driver)
+                     html_source=driver.page_source
+                     while (len(page_n)!=0):
+                         nextPage(driver,page_n)
+                         dict_temp=getContentDict(driver)
+                         content_dict.update(dict_temp)
+                         html_source=html_source+driver.page_source
+                except Exception:
+                    continue
+                find = True
             row.append(url[0])
             for d in content_dict:
                 row.append(d)
                 row.append(content_dict[d])
             data.append(row)
             saveTxt(html_source,animal,url[0])
+            driver.close()
+            driver.switch_to.window(driver.window_handles[0])
             print url[0]
             print time.time()-time_disease_start
         saveData(data,animal)
         print animal
         print time.time()-time_animal_start
-	
-'''    
-    web_catalog = ("http://www.petmd.com/cat/conditions#")    
+'''
+    web_catalog = ("http://www.petmd.com/"+animal_list[0]+"/conditions")    
     driver.get(web_catalog)    
-    diseaseElement = getDiseaseName(driver)   
+    diseaseElement = getDiseaseName(driver)
     diseaseElement.pop(0)
     url_list = []
     for i in range(len(diseaseElement)):
         url_temp=diseaseElement[i].get_attribute('href')
         url_list.append(url_temp)
+    
 #--------------------------------test----------------------------------------    
-    ul=url_list[0]
+    ul=url_list[9]
     driver.get(ul)
-    getContentDict(driver)
-            
+    content_dict = getContentDict(driver)
     page_n = getPage(driver)
-    driver.close()
-'''
+    while (len(page_n)!=0):
+        nextPage(driver,page_n)
+        dict_temp=getContentDict(driver)
+        content_dict.update(dict_temp)
+    for a in content_dict:
+        print a
+        print content_dict[a]'''
+
+    
+        
