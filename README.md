@@ -3,12 +3,32 @@
 ## Prerequisite software
 
 1. [Git](https://git-scm.com/downloads), choose right version
-2. Python(feel free to add)
+2. Python 3.6.2
 
 ## Phase 0
 
 1. Scrape disease data and QA data from __(website?)__ and store them in csv files
 2. Research on keywords extraction/generation and disease match models and document it in a word file
+
+
+## Phase 1
+1. Build a simple application demo 
+
+
+## How to set up `Flask` environment
+
+We are choosing `Flask` as our web framework to build the first version of application, and use `virtualenv` to create isolated Python environment so it won't affect other projects locally. 
+
+After checking out code, 
+
+1. Follow this [link](https://virtualenv.pypa.io/en/stable/installation/) to install `virtualenv`
+2. Activate environment by `.\vevn\Scripts\activate`
+3. Deactivate environment using `deactivate`
+
+After activating environment, to run `Flask`
+
+`set FLASK_APP=./test/test.py
+flask run`
 
 
 ## File share/Code commit
