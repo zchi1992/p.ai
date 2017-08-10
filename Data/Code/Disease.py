@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 import csv
 import time
+import sys
 
 def saveTxt(content,animal,d_name):
     path = "C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\Pet\\Disease\\html\\"+ animal + "\\"+animal+"_"+d_name+".txt"
@@ -55,10 +56,11 @@ def wait(driver, sec):
 
 
 if __name__ == "__main__":
+
     driver = webdriver.Chrome('C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\chromedriver.exe')    
     animal_list=["horse","exotic","reptile","rabbit","ferret","cat","dog"]
-    animal = animal_list[5]
-
+    ipt = raw_input("\nChoose the animal you want:\n0 - horse\n1 - exotic\n2 - reptile\n3 - rabbit\n4 - ferret\n5 - cat\n6 - dog\n")
+    animal = animal_list[int(ipt)]
     web_catalog = ("http://www.petmd.com/"+animal+"/conditions")
     driver.get(web_catalog)    
     diseaseElement = getDiseaseName(driver)
