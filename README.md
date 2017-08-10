@@ -28,6 +28,7 @@ After checking out code,
 After activating environment, to run `Flask`
 
 `set FLASK_APP=./test/test.py
+
 flask run`
 
 
