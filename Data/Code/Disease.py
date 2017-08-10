@@ -56,11 +56,10 @@ def wait(driver, sec):
 
 
 if __name__ == "__main__":
-
-    driver = webdriver.Chrome('C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\chromedriver.exe')    
     animal_list=["horse","exotic","reptile","rabbit","ferret","cat","dog"]
     ipt = raw_input("\nChoose the animal you want:\n0 - horse\n1 - exotic\n2 - reptile\n3 - rabbit\n4 - ferret\n5 - cat\n6 - dog\n")
     animal = animal_list[int(ipt)]
+    driver = webdriver.Chrome('C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\chromedriver.exe')    
     web_catalog = ("http://www.petmd.com/"+animal+"/conditions")
     driver.get(web_catalog)    
     diseaseElement = getDiseaseName(driver)
