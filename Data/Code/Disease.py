@@ -8,7 +8,7 @@ import time
 import sys
 
 def saveTxt(content,animal,d_name):
-    path = "C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\Pet\\Disease\\html\\"+ animal + "\\"+animal+"_"+d_name+".txt"
+    path = "C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\Pet\\Disease\\html\\"+animal+"_"+d_name+".txt"
     text_file = open(path,"w")
     text_file.write(content.encode('utf-8'))
     text_file.close()
@@ -59,7 +59,13 @@ if __name__ == "__main__":
     animal_list=["horse","exotic","reptile","rabbit","ferret","cat","dog"]
     ipt = raw_input("\nChoose the animal you want:\n0 - horse\n1 - exotic\n2 - reptile\n3 - rabbit\n4 - ferret\n5 - cat\n6 - dog\n")
     animal = animal_list[int(ipt)]
-    driver = webdriver.Chrome('C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\chromedriver.exe')    
+
+
+    chromeOptions = webdriver.ChromeOptions()
+    prefs = {"profile.managed_default_content_settings.images":2}
+    chromeOptions.add_experimental_option("prefs",prefs)
+    driver = webdriver.Chrome('C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\chromedriver.exe', chrome_options=chromeOptions)
+
     web_catalog = ("http://www.petmd.com/"+animal+"/conditions")
     driver.get(web_catalog)    
     diseaseElement = getDiseaseName(driver)
