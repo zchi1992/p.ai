@@ -26,6 +26,6 @@ if __name__ == "__main__":
     chromeOptions.add_experimental_option("prefs",prefs)
     driver = webdriver.Chrome('Z:\\WebDriver\\chromedriver.exe', chrome_options=chromeOptions)
 
-    alphabet_link = getablink()
+    alphabet_link = getablink()  
 
     diseaseLink_list = getdiseaseLink(alphabet_link)
