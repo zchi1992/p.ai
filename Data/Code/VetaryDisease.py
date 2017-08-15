@@ -20,7 +20,6 @@ def getdiseaseLink():
             diseaseLink_list.append([elements[0].find_element_by_css_selector('a').text, element.find_element_by_css_selector('a').get_attribute('href')])
     return diseaseLink_list
 
-body > div.wrap > div.outer-main-body > div > div:nth-child(2) > ul > li:nth-child(1) > a
 if __name__ == "__main__":
     chromeOptions = webdriver.ChromeOptions()
     prefs = {"profile.managed_default_content_settings.images":2}
