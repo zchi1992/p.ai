@@ -47,7 +47,7 @@ def saveTxt(content,animal,d_name):
 def getablink():
     link_list = []
     for alphabet in ascii_uppercase:
-        link_list.append("https://www.vetary.com/dog/conditions/" + alphabet)
+        link_list.append("https://www.vetary.com/cat/conditions/" + alphabet)
     return link_list
 
 def getdiseaseLink(alphabet_link):
@@ -118,10 +118,10 @@ if __name__ == "__main__":
     diseaseLink_list = getdiseaseLink(alphabet_link)
 
     clean_data = pd.DataFrame(columns = ["Category", "ID", "Disease", "Symptoms_Key", "Introduction", "Symptoms_Detailed1", "Symptoms_Detailed2", "Causes", "Diagnosis", "Treatment", "Recovery", "Cost"])
-    for i in range(1654, len(diseaseLink_list)):
-        Category = "dog"
+    for i in range(361, len(diseaseLink_list)):
+        Category = "cat"
         ID = i
-        Disease = diseaseLink_list[i][0]
+        Disease = unicodetoascii(diseaseLink_list[i][0].encode('utf-8'))
         print i,Disease
         driver.get(diseaseLink_list[i][1])
         wait(driver, 10)
