@@ -36,7 +36,7 @@ def unicodetoascii(text):
             ord('\xe2\x81\xbd'.decode('utf-8')): ord("("),
             ord('\xe2\x81\xbe'.decode('utf-8')): ord(")"),
                             }
-    return text.decode('utf-8').translate(uni2ascii).encode('ascii')
+    return text.decode('utf-8').translate(uni2ascii).encode('ascii','ignore')
 
 def saveTxt(content,animal,d_name):
     path = "C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\Pet\\Vetarycom\\HTML\\"+animal+"_"+d_name+".txt"
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     diseaseLink_list = getdiseaseLink(alphabet_link)
 
     clean_data = pd.DataFrame(columns = ["Category", "ID", "Disease", "Symptoms_Key", "Introduction", "Symptoms_Detailed1", "Symptoms_Detailed2", "Causes", "Diagnosis", "Treatment", "Recovery", "Cost"])
-    for i in range(len(diseaseLink_list)):
+    for i in range(1654, len(diseaseLink_list)):
         Category = "dog"
         ID = i
         Disease = diseaseLink_list[i][0]
@@ -127,5 +127,5 @@ if __name__ == "__main__":
         wait(driver, 10)
         [Symptoms_Key, Introduction, Symptoms_Detailed1, Symptoms_Detailed2, Causes, Diagnosis, Treatment, Recovery, Cost] = GetDiseaseDetail(driver)
         clean_data.loc[len(clean_data)] = [Category, ID, Disease, Symptoms_Key, Introduction, Symptoms_Detailed1, Symptoms_Detailed2, Causes, Diagnosis, Treatment, Recovery, Cost]
-        saveTxt(driver.page_source, Category, Disease)
+        saveTxt(driver.page_source, Category, Disease.replace('/', '_'))
     clean_data.to_csv("C:\\Users\\ChuyaoShen\\Desktop\\pianzi\\Pet\\Vetarycom\\Data.csv", index = False)
