@@ -72,14 +72,48 @@ body, html {
 	color: grey;
 }
 
-.backimg {
-	margin-top: 0px
+.Inter {
+	margin-top: 0px;
 	float: left;
 	width: 100%;
+}
+
+#bckgrd{
+	position:relative;
+	opacity:0.4;
+	width:100%;
+}
+
+.Inter h2{
+	position:absolute;
+	top:150px;
+	left:220px;
+	font-size:300%;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #444444;
+}
+
+.Inter textarea{
+	position:absolute;
+	top:300px;
+	width: 450px;
+	height:200px;
+	left:400px;
+	opacity:0.6;
+	border:0px;
+	font-size:150%;
+	overflow-y: scroll;
+	resize: none;
+}
+
+.Inter a{
+
 
 }
 
-.backimg img{
-	opacity:0.5;
-	width:100%;
+#send{
+	position:absolute;
+	width:10%;
+	top:360px;
+	left:920px;
 }
