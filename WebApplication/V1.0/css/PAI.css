@@ -88,16 +88,16 @@ body, html {
 	position:absolute;
 	top:150px;
 	left:220px;
-	font-size:300%;
+	font-size:4vw;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	color: #444444;
 }
 
 .Inter textarea{
 	position:absolute;
-	top:300px;
-	width: 450px;
-	height:200px;
+	bottom:200px;
+	width: 40vw;
+	height:20vw;
 	left:400px;
 	opacity:0.6;
 	border:0px;
