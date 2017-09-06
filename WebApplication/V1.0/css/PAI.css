@@ -83,7 +83,7 @@ body, html {
 }
 
 #bckgrd{
-	opacity:0.4;
+	opacity:0.6;
 	width:100%;
 }
 
@@ -101,25 +101,59 @@ body, html {
 }
 .Intertext{
 	position:absolute;
-	top:13vw;
+	top:15vw;
 	left:25vw;
 }
 
 .Inter textarea{
-	width: 35vw;
-	height:13vw;
+	width: 40vw;
+	height:6vw;
 	opacity:0.6;
 	border:0px;
 	font-size:150%;
 	resize: none;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
 .Interbtm{
 	position:absolute;
-	top:20vw;
-	left:65vw;
+	top:15vw;
+	left:68vw;
 }
 
 #send{
 	width:6vw;
+}
+
+.sectionbar {
+	position:relative;
+	width:100%;
+	bottom: 70px;
+	background-color: #E4E4E4;
+    overflow:auto;
+    opacity:0.8;
+
+}
+
+.bar {
+	width: calc(100% - 40rem);
+    max-width: 1380px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow:auto;
+}
+
+.bar a{
+	width:20%;
+	height:40px;
+	float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 22px;
+    background-color: black;
+    opacity:0.6;
+    color:white;
+
 }
