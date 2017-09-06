@@ -14,12 +14,12 @@ body, html {
     pointer-events: auto;
     -webkit-transform: translate3d(0,0,0);
     max-width: 1920px;
+    min-width: 1100px;
     margin: 0 auto;
 }
 
 .nav{
-	width: calc(100% - 16rem);
-    max-width: 1380px;
+	width: 1000px;
     height:auto;
     margin-right: auto;
     margin-left: auto;
@@ -28,10 +28,10 @@ body, html {
 
 .logo {
 	position: relative;
-	height: 4vw;
-	width: auto
+	height: 70px;
+	width: auto;
 	left: 0px;
-	top: 0px;
+	top: 8px;
 	box-sizing: border-box;
 	float:left;
 }
@@ -57,15 +57,14 @@ body, html {
 .nav-content-ul {
 	list-style-type: none;
 	margin:0;
-	padding: 0;
     overflow: hidden;
-    height:4vw;
+    height:70px;
 }
 
 .nav-content-ul li{
     float: right;
-    margin-left:1.4vw;
-    margin-top: 1.2vw;
+    margin-left:30px;
+    margin-top: 25px;
  	vertical-align: middle;
 
 }
@@ -73,42 +72,46 @@ body, html {
 .nav-content-ul li a{
 
 	text-decoration: none;
-	font-size : 1.2vw;
+	font-size : 20px;
 	color: grey;
 }
+.Inter-container {
+	display: block;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    pointer-events: auto;
+    -webkit-transform: translate3d(0,0,0);
+    max-width: 1920px;
+    min-width: 1100px;
+    margin: 0 auto;
 
+}
 .Inter {
-	margin-top: 0px;
 	width: 100%;
 	margin-bottom: 0px;
+	width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #bckgrd{
 	opacity:0.6;
 	width:100%;
+	min-width: 1100px;
+
 }
 
-.Interh2{
-	position:absolute;
-	top:6vw;
-	left:18vw;
-}
 
-.Inter h2{
-
-	font-size:2.5vw;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	color: #444444;
-}
 .Intertext{
 	position:absolute;
-	top:15vw;
-	left:25vw;
+	top:100px;
+	left:0px;
 }
 
 .Inter textarea{
-	width: 40vw;
-	height:6vw;
+	width: 500px;
+	height:50px;
 	opacity:0.6;
 	border:0px;
 	font-size:150%;
