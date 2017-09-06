@@ -87,30 +87,33 @@ body, html {
     margin: 0 auto;
 
 }
-.Inter {
-	width: 100%;
-	margin-bottom: 0px;
-	width: 1000px;
-    margin-right: auto;
-    margin-left: auto;
-}
 
 #bckgrd{
 	opacity:0.6;
 	width:100%;
 	min-width: 1100px;
+}
+
+.Inter {
+	position: relative;
+	margin-bottom: 0px;
+	width: 1000px;
+	height:424px;
+    margin-right: auto;
+    margin-left: auto;
+    float:left;
 
 }
 
 
 .Intertext{
 	position:absolute;
-	top:100px;
-	left:0px;
+	top:110px;
+	left:110px;
 }
 
 .Inter textarea{
-	width: 500px;
+	width: 600px;
 	height:50px;
 	opacity:0.6;
 	border:0px;
@@ -121,18 +124,19 @@ body, html {
 
 .Interbtm{
 	position:absolute;
-	top:15vw;
-	left:68vw;
+	top:60px;
+	left:780px;
 }
 
 #send{
 	width:6vw;
 }
 
+
+
 .sectionbar {
 	position:absolute;
 	width:100%;
-	top: 34.5vw;
 	background-color: #E4E4E4;
     overflow:auto;
     opacity:0.8;
