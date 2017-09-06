@@ -28,7 +28,7 @@ body, html {
 
 .logo {
 	position: relative;
-	height: 10vw;
+	height: 4vw;
 	width: auto
 	left: 0px;
 	top: 0px;
@@ -45,11 +45,12 @@ body, html {
 }
 
 .nav-content {
-	margin-left: 20%;
+	margin-left: 30%;
 	position:relative;
 	width:auto;
 	max-width: 800px;
 	margin-top: 0px;
+	margin-right:0px;
 	height:auto;
 }
 
@@ -58,13 +59,13 @@ body, html {
 	margin:0;
 	padding: 0;
     overflow: hidden;
-    height:10vw;
+    height:4vw;
 }
 
 .nav-content-ul li{
     float: right;
-    margin-right:1.2vw;
-    margin-top: 4vw;
+    margin-left:1.4vw;
+    margin-top: 1.2vw;
  	vertical-align: middle;
 
 }
@@ -72,7 +73,7 @@ body, html {
 .nav-content-ul li a{
 
 	text-decoration: none;
-	font-size : 1.8vw;
+	font-size : 1.2vw;
 	color: grey;
 }
 
@@ -88,38 +89,37 @@ body, html {
 
 .Interh2{
 	position:absolute;
-	top:10vw;
-	left:8rem;
+	top:6vw;
+	left:18vw;
 }
 
 .Inter h2{
 
-	font-size:4vw;
+	font-size:2.5vw;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	color: #444444;
 }
+.Intertext{
+	position:absolute;
+	top:13vw;
+	left:25vw;
+}
 
 .Inter textarea{
-	position:absolute;
-	bottom:200px;
-	width: 40vw;
-	height:20vw;
-	left:400px;
+	width: 35vw;
+	height:13vw;
 	opacity:0.6;
 	border:0px;
 	font-size:150%;
-	overflow-y: scroll;
 	resize: none;
 }
 
-.Inter a{
-
-
+.Interbtm{
+	position:absolute;
+	top:20vw;
+	left:65vw;
 }
 
 #send{
-	position:absolute;
-	width:10%;
-	top:360px;
-	left:920px;
+	width:6vw;
 }
