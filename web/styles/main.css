@@ -1,4 +1,175 @@
+@charset "UTF-8";
+
 html {
-    font-size: 10px;
-    font-family: 'Lato', sans-serif;
+  font-family: 'Lato', serif;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #434343;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.universal-header {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  font-size: 20px;
+  color: #000;
+  position: fixed;
+  z-index: 1;
+  box-shadow: 0px 2px 10px #333;
+}
+
+.theme {
+  height: 100%;
+  padding: 0 10%;
+}
+
+.universal-header>div>div {
+  margin: 0 auto;
+  height: 100%;
+}
+
+.logo {
+  width: 120px;
+  margin: 0;
+  float: left;
+}
+
+.logo .image {
+  width: 108px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.theme li a {
+  height: 60px;
+  color: #000;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 5px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.left-nav {
+  float: left;
+  height: 100%;
+}
+
+.left-nav a:hover {
+  background-color: #4CAF50;
+}
+
+.header-action {
+  display: flex;
+  align-items: center;
+  float: right;
+  height: 58px;
+  padding: 5px;
+}
+
+.header-action .log-in {
+  float: left;
+}
+
+.header-action .sign-up {
+  float: left;
+  position: relative;
+  z-index: 3000001;
+}
+
+.header-action div {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.header-action > div > a {
+  text-align: none;
+  text-decoration: none;
+  color: #000;
+  padding: 1px;
+  vertical-align: middle;
+}
+
+.container {
+    width: 100%;
+}
+
+.container > header {
+  height: 450px;
+  width: 100%;
+  background: url("../images/background.jpg") no-repeat 10% 45%;
+  background-size: 100%;
+}
+
+.centered-content {
+    height: 200px;
+    text-align: center;
+    background: #b3ddd8;
+    color: #444343;
+}
+
+.search-text {
+    height: 80px;
+    margin-bottom: 24px;
+    vertical-align: middle;
+}
+
+.container div h1 {
+  font-weight: 400;
+  font-size: 2em;
+  margin: 20px 0;
+  padding: 10px 0;
+  word-spacing: 5px;;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+}
+
+form {
+    height: 60px;
+    display: block;
+    text-align: center;
+}
+
+input {
+    height: 60px;
+    width: 60%;
+    padding: 9px 24px 9px 12px;
+    margin-right: -50px;;
+    box-shadow: none;
+    border: none;
+    border-radius: 30px;;
+    background: rgba(255, 255, 0.8);
+}
+
+
+
+
+
+
