@@ -11,6 +11,7 @@ import time
 #from pdb import set_trace as bp
 
 def saveTxt(content,animal,d_name):
+    d_name=d_name.replace('?','_')
     path = "C:\\Users\\IrisTang\\Documents\\zzz\\aip\\diseaseData\\html\\"+animal+"_"+d_name+".txt"
     text_file = open(path,"w")
     text_file.write(content.encode('utf-8'))
@@ -84,7 +85,10 @@ def openLinkInNewWindow(driver, url):
     
 
 if __name__ == "__main__":
-    driver = webdriver.Chrome('C:/Users/IrisTang/Documents/zzz/aip/chromedriver_win32/chromedriver.exe')    
+    chromeOptions = webdriver.ChromeOptions()
+    prefs = {"profile.managed_default_content_settings.images":2}
+    chromeOptions.add_experimental_option("prefs",prefs)
+    driver = webdriver.Chrome('C:/Users/IrisTang/Documents/zzz/aip/chromedriver_win32/chromedriver.exe', chrome_options=chromeOptions)    
     animal_list=["horse","exotic","reptile","rabbit","ferret","cat","dog"]
     for animal in animal_list:
         time_animal_start=time.time()
@@ -128,7 +132,7 @@ if __name__ == "__main__":
                     row.append(d)
                     row.append(content_dict[d])
                 data.append(row)
-                saveTxt(html_source,animal,url[0])
+                saveTxt(html_source,animal,url[0].replace('/','_'))
                 driver.close()
                 driver.switch_to.window(driver.window_handles[0])
                 print url[0]
@@ -142,32 +146,15 @@ if __name__ == "__main__":
                 except Exception:
                     continue
                 continue
-            time.sleep(3)            
+            if (url_list.index(url)%50==0):
+                driver.quit()
+                driver = webdriver.Chrome('C:/Users/IrisTang/Documents/zzz/aip/chromedriver_win32/chromedriver.exe', chrome_options=chromeOptions)
+                web_catalog = ("http://www.petmd.com/"+animal+"/conditions")
+                driver.get(web_catalog)            
         saveData(data,animal)
         print animal
         print time.time()-time_animal_start
-'''
-    web_catalog = ("http://www.petmd.com/"+animal_list[0]+"/conditions")    
-    driver.get(web_catalog)    
-    diseaseElement = getDiseaseName(driver)
-    diseaseElement.pop(0)
-    url_list = []
-    for i in range(len(diseaseElement)):
-        url_temp=diseaseElement[i].get_attribute('href')
-        url_list.append(url_temp)
-    
-#--------------------------------test----------------------------------------    
-    ul=url_list[34]
-    driver.get(ul)
-    content_dict = getContentDict(driver)
-    page_n = getPage(driver)
-    while (len(page_n)!=0):
-        nextPage(driver,page_n)
-        dict_temp=getContentDict(driver)
-        content_dict.update(dict_temp)
-    for a in content_dict:
-        print a
-        print content_dict[a]'''
+
 
     
         

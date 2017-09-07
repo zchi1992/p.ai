@@ -1,0 +1,165 @@
+body, html {
+    padding: 0;
+    margin:0px 0px 0px 0px ;
+    width: 100%;
+    height: 100%;
+}
+
+
+.nav-container{
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    pointer-events: auto;
+    -webkit-transform: translate3d(0,0,0);
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.nav{
+	width: calc(100% - 16rem);
+    max-width: 1380px;
+    height:auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.logo {
+	position: relative;
+	height: 4vw;
+	width: auto
+	left: 0px;
+	top: 0px;
+	box-sizing: border-box;
+	float:left;
+}
+
+.logo img{
+	width: auto;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.nav-content {
+	margin-left: 30%;
+	position:relative;
+	width:auto;
+	max-width: 800px;
+	margin-top: 0px;
+	margin-right:0px;
+	height:auto;
+}
+
+.nav-content-ul {
+	list-style-type: none;
+	margin:0;
+	padding: 0;
+    overflow: hidden;
+    height:4vw;
+}
+
+.nav-content-ul li{
+    float: right;
+    margin-left:1.4vw;
+    margin-top: 1.2vw;
+ 	vertical-align: middle;
+
+}
+
+.nav-content-ul li a{
+
+	text-decoration: none;
+	font-size : 1.2vw;
+	color: grey;
+}
+
+.Inter {
+	margin-top: 0px;
+	width: 100%;
+	margin-bottom: 0px;
+}
+
+#bckgrd{
+	opacity:0.6;
+	width:100%;
+}
+
+.Interh2{
+	position:absolute;
+	top:6vw;
+	left:18vw;
+}
+
+.Inter h2{
+
+	font-size:2.5vw;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #444444;
+}
+.Intertext{
+	position:absolute;
+	top:15vw;
+	left:25vw;
+}
+
+.Inter textarea{
+	width: 40vw;
+	height:6vw;
+	opacity:0.6;
+	border:0px;
+	font-size:150%;
+	resize: none;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.Interbtm{
+	position:absolute;
+	top:15vw;
+	left:68vw;
+}
+
+#send{
+	width:6vw;
+}
+
+.sectionbar {
+	position:absolute;
+	width:100%;
+	top: 34.5vw;
+	background-color: #E4E4E4;
+    overflow:auto;
+    opacity:0.8;
+
+}
+
+.diseases{
+	margin-left: 25%;
+}
+.sectionbar a{
+	width:10%;
+	height:3vw;
+	float: left;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4vw;
+    background-color: black;
+    opacity:0.6;
+    color:white;
+
+}
+
+.news {
+	margin-top: 0px;
+	position:absolute;
+	width:100%;
+    overflow:auto;
+	background-color: #E4E4E4;
+	top: 37.5vw;
+	height: 100px;
+	opacity: 0.8;
+}
