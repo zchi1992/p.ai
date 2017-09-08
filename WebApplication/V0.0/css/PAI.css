@@ -16,6 +16,8 @@ body, html {
     max-width: 1920px;
     min-width: 1100px;
     margin: 0 auto;
+    z-index: 1;
+  	box-shadow: 0px 2px 10px #333;
 }
 
 .nav{
@@ -95,20 +97,19 @@ body, html {
 }
 
 .Inter {
-	position: relative;
-	margin-bottom: 0px;
+	position: absolute;
 	width: 1000px;
 	height:424px;
-    margin-right: auto;
-    margin-left: auto;
-    float:left;
-
+	margin: auto;
+	top:0px;
+	left:0;
+	right:0;
 }
 
 
 .Intertext{
 	position:absolute;
-	top:110px;
+	bottom:250px;
 	left:110px;
 }
 
@@ -124,40 +125,77 @@ body, html {
 
 .Interbtm{
 	position:absolute;
-	top:60px;
+	bottom:240px;
 	left:780px;
 }
 
 #send{
-	width:6vw;
+	width:100px;
 }
 
 
 
 .sectionbar {
-	position:absolute;
+	position:relative;
 	width:100%;
 	background-color: #E4E4E4;
     overflow:auto;
     opacity:0.8;
+    top:-120px;
 
 }
-
+.section{
+	width: 1000px;
+    height:auto;
+    margin-right: auto;
+    margin-left: auto;
+}
 .diseases{
-	margin-left: 25%;
+	margin-left: ;
 }
 .sectionbar a{
-	width:10%;
-	height:3vw;
+	width:250px;
+	height:120px;
 	float: left;
     display: block;
     text-align: center;
     text-decoration: none;
-    font-size: 1.4vw;
+    font-size: 25px;
     background-color: black;
     opacity:0.6;
     color:white;
+    padding-top: auto;
+    padding-bottom:auto;
 
+}
+
+.diseases:hover{
+	background-color:#B83333;
+}
+.nearby:hover{
+	background-color:#247D53;
+}
+.store:hover{
+	background-color:#807D27;
+
+}
+.adoption:hover{
+	background-color:#215381;
+
+}
+.sectionbar a img{
+	position:relative;
+	height:50px;
+	margin-left: auto;
+	margin-right:auto;
+	top:22px;
+}
+
+.sectionbar a p{
+	position:relative;
+	margin-top:0;
+	margin-bottom:0;
+	top:27px;
 }
 
 .news {
