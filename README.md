@@ -48,3 +48,9 @@ Owner:
 3. If it is not okay, add comments.
 
 _Note_: after clicking 'Merge pull request', the change will merge to `master` branch. So carefully review the change before merging.
+
+# Git
+
+[fork from a remote repo](https://help.github.com/articles/syncing-a-fork/)
+
+abcd
