@@ -1,0 +1,8 @@
+MANIFEST.in
+p.ai.egg-info/PKG-INFO
+p.ai.egg-info/SOURCES.txt
+p.ai.egg-info/dependency_links.txt
+p.ai.egg-info/requires.txt
+p.ai.egg-info/top_level.txt
+pai/__init__.py
+pai/pai.py
