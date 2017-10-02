@@ -1,0 +1,10 @@
+include/
+Lib/
+Scripts/
+tcl/
+wsgi/
+*.pdf
+__pycache__/
+*.pyc
+p.ai.egg-info/
+pip-selfcheck.json
