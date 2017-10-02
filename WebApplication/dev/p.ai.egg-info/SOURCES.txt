@@ -6,3 +6,13 @@ p.ai.egg-info/requires.txt
 p.ai.egg-info/top_level.txt
 pai/__init__.py
 pai/pai.py
+pai/schema.sql
+pai/static/favicon.ico
+pai/static/images/background.jpg
+pai/static/images/f1ab280a7625b3444237e5259253d756.ico.zip
+pai/static/images/logo.png
+pai/static/images/microsoft.png
+pai/static/images/paw.png
+pai/static/images/web.png
+pai/static/styles/main.css
+pai/templates/index.html

@@ -1,0 +1,7 @@
+include
+Lib
+Scripts
+tcl
+wsgi
+*.pdf
+__pycache__

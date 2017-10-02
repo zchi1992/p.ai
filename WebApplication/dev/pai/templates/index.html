@@ -8,7 +8,7 @@
     <title>p.ai - AI-driven Online Vet</title> 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='styles/main.css') }}" >
   </head>
   <body>
     <!-- header -->
@@ -16,7 +16,7 @@
       <div class="theme">   
         <div class = "nav">
           <a class="logo" href="/" alt=""p.ai>
-            <img class="image" src="images/logo.png" alt="P.ai">
+            <img class="image" src="{{ url_for('static', filename='images/logo.png') }}" alt="P.ai">
           </a>
           <nav class="left-nav">
             <ul>
@@ -39,7 +39,7 @@
     <!-- main -->
     <body>
     	<div class = Inter-container>
-			<img src = 'images/background.jpg' id = 'bckgrd' alt = backgroundimg>
+			<img src = "{{ url_for('static', filename='images/background.jpg') }}" id = 'bckgrd' alt = backgroundimg>
 			<div class = Inter>
 			  <form class="search-form">
               <input class = "interinput" type="text" placeholder="How is your pet feel today?">
@@ -51,19 +51,19 @@
 			<div class = sectionbar>
 				<div class = section>
 					<a class = "diseases" href = "Disease.html"> 
-						<img src = 'images/paw.png' id = 'Dispic' alt = Dispic>
+						<img src = "{{ url_for('static', filename='images/paw.png') }}" id = 'Dispic' alt = Dispic>
 						<p>Disease A-Z</p>
 					</a>
 					<a class = "nearby" href = "nearby.html"> 
-						<img src = 'images/paw.png' id = 'nearpic' alt = nearpic>
+						<img src = "{{ url_for('static', filename='images/paw.png') }}" id = 'nearpic' alt = nearpic>
 						<p>Nearby Clinic</p>
 					</a>
 					<a class = "store" href = "store.html"> 
-						<img src = 'images/paw.png' id = 'storepic' alt = storepic>
+						<img src = "{{ url_for('static', filename='images/paw.png') }}" id = 'storepic' alt = storepic>
 						<p>Pet Store</p>
 					</a>
 					<a class = "adoption" href = "adoption.html"> 
-						<img src = 'images/paw.png' id = 'adoptionpic' alt = adoptionpic>
+						<img src = "{{ url_for('static', filename='images/paw.png') }}" id = 'adoptionpic' alt = adoptionpic>
 						<p>Adoption</p>
 					</a>
 				</div>
