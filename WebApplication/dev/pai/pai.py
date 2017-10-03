@@ -5,9 +5,10 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from flask_sqlalchemy import SQLAlchemy 
 
 app = Flask(__name__, instance_relative_config=True)
-# app.config.from_pyfile('app.cfg', silent = True)
-app.config['SQLALCHEMY_DATABASE_URI']='sqlite:////pai.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+app.config.from_pyfile('app.cfg', silent = True)
+
+# app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///pai.db'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 ######################################################################################
 # Database Connection
 ######################################################################################
@@ -71,9 +72,9 @@ def index():
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-# @login_manager.user_loader
-# def load_user(user_id):
-#     return User.query.get(int(user_id))
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @app.route('/<username>')
 def log_in(username):
@@ -100,5 +101,5 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
+
 
