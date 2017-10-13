@@ -11,3 +11,5 @@ pip-selfcheck.json
 *.zip
 Data/
 .ipynb_checkpoints/
+data/
+*.csv
