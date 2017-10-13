@@ -8,3 +8,6 @@ __pycache__/
 *.pyc
 p.ai.egg-info/
 pip-selfcheck.json
+*.zip
+Data/
+.ipynb_checkpoints/
