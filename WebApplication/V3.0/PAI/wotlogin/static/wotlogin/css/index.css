@@ -1,0 +1,19 @@
+
+
+.jumbotron {
+  height: 500px; /*same height as jumbotron */
+  color: white;
+  text-shadow: #444 0 1px 1px;
+  background:url('/static/wotlogin/imgs/background.jpg') no-repeat center center;
+}
+
+.col-lg-6 {
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.8
+}
+
+.intro {
+	font-size: 20px
+}

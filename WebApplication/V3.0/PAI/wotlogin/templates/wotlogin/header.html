@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="should include later">
+    <meta name="description" content="for optimizing relevant search purpose. should included later">
+    <link rel="shortcut icon" href="/static/wotlogin/imgs/paw.png" type="image/x-icon">
+    <title>p.ai - AI-driven Online Vet</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="/static/wotlogin/css/header.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+
+    {% block css %}
+    {% endblock %}
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body data-gr-c-s-loaded="true">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/#"><img class="image" src="/static/wotlogin/imgs/logo.png" alt="P.ai" style="width: 80px; height: 100%;"></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/#">Action</a>
+              <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/#">Another action</a>
+              <a class="dropdown-item" href="https://getbootstrap.com/docs/4.0/examples/jumbotron/#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Email Address" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main">
+      {% block content %}{% endblock %}
+    </main>
+
+
+    <footer class="container">
+      <p>© Company 2017</p>
+    </footer>
+    {% block script %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
