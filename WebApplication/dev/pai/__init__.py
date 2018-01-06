@@ -1,1 +1,0 @@
-from .pai import app

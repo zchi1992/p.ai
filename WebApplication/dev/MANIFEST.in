@@ -1,3 +1,0 @@
-graft pai/templates
-graft pai/static
-include pai/schema.sql
