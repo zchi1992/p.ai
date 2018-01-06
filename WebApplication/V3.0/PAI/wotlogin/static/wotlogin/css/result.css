@@ -1,0 +1,33 @@
+.scrollspy-example
+{
+	position: relative;
+	overflow: auto;
+	height: calc(100vh - 150px);
+}
+
+#progress {
+  padding: 20px;
+}
+
+
+.radial-progress__text{
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+  }  
+
+.radial-progress__background{
+	stroke: #868e96!important;
+}
+
+.radial-progress__value{
+	stroke: #868e96!important;
+	
+}
+
+
+.list-group-item:hover{
+	background-color: #3B818E!important;
+	color: white!important; 
+
+}
