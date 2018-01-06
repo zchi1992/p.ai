@@ -1,0 +1,126 @@
+{% extends "wotlogin/header.html" %}
+
+{% block css %}
+<link href="/static/wotlogin/css/result.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="bd-example" style="background:url('/static/wotlogin/imgs/resultbg.png') no-repeat center center;">
+  <div class="row">
+    <div class="col-3" >
+      <div id="potential-list" class="list-group" >
+        {% for added in addedinfo %}
+        <form action="{% url 'wotlogin:result' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="selected" value="del_{{forloop.counter}}" >
+        <a href="#" class="list-group-item list-group-item-action active" onclick="this.parentNode.submit()" style="background-color:rgba(0, 0, 0, 0.4); text-align: right; font-family: 'Ubuntu'">{{added}}</a>
+        </form>
+        {% endfor %}
+        {% for potential in potentialinfo %}
+        <form action="{% url 'wotlogin:result' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="selected" value="add_{{forloop.counter}}" >
+        <a href="#" class="list-group-item list-group-item-action" onclick="this.parentNode.submit()" style="background-color:rgba(255, 255, 255, 0.4); text-align: right; font-family: 'Ubuntu'">{{potential}}</a>
+        </form>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-9">
+      <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+        {% for disease in output %}
+        <div class="card text-white bg-secondary mb-3" style="max-width: 38rem; margin-top: 10px; width: 100%; max-width: 100%!important; min-width: 600px">
+          <div class="card-header" style="font-size:20px; font-family: 'Open Sans'; background-color:rgba(0, 0, 0, 0.6)">{{disease.name}}</div>
+          <div class="card-body">
+            <div class = "row">
+              <div class = "col-9">
+                {% for symptom in disease.symptoms %}
+                <span class="badge {{symptom.color}}">{{symptom.symptom}}</span>
+                {% endfor %}
+                <p class="card-text" style="font-family: 'Open Sans'; margin-top: 10px">{{disease.introduction}} </p>
+              </div>
+              <div class = "col-2">
+                <div id="progress{{forloop.counter}}" 
+                     data-percentage="{{disease.probability}}" 
+                     data-track-width="15" 
+                     data-track-colour="253533" 
+                     data-fill-colour="58EAD2" 
+                     data-text-colour="58EAD2" 
+                     data-stroke-colour="FFFFFF" 
+                     data-stroke-spacing="4"> 
+                </div> 
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" style="margin-top: 20px">
+              <div class="card">
+                <div class="card-header" role="tab" id="headingOne">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" href="#collapseOne{{forloop.counter}}" aria-expanded="true" aria-controls="collapseOne" style="color:black;font-family: 'Open Sans'">
+                      Diagnosis
+                    </a>
+                  </h5>
+                </div>
+
+                <div id="collapseOne{{forloop.counter}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body" style = "color: black;font-family: 'Open Sans'">
+                    {{disease.diagnosis}}
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo{{forloop.counter}}" aria-expanded="false" aria-controls="collapseTwo" style = "color: black;font-family: 'Open Sans'">
+                      Cause
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseTwo{{forloop.counter}}" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body" style = "color: black;font-family: 'Open Sans'">
+                    {{disease.cause}}
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" role="tab" id="headingThree">
+                  <h5 class="mb-0">
+                    <a class="collapsed" data-toggle="collapse" href="#collapseThree{{forloop.counter}}" aria-expanded="false" aria-controls="collapseThree" style = "color: black;font-family: 'Open Sans'">
+                      Treatment
+                    </a>
+                  </h5>
+                </div>
+                <div id="collapseThree{{forloop.counter}}" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body" style = "color: black;font-family: 'Open Sans'">
+                    {{disease.treatment}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+{% block script %}
+  <script src="/static/wotlogin/js/result.js" ></script>
+
+{% endblock %}
